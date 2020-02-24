@@ -10,6 +10,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
+import repository.Location;
 
 /**
  *
@@ -25,20 +26,15 @@ public class IssService {
      * 
      * @return 
      */
-    public JSONObject getLocation(){
+    public Location getLocation(){
         JSONObject data = client
                             .target(URL)
                             .request(MediaType.APPLICATION_JSON)
                             .get(JSONObject.class);
+                
+        Location location = new Location((Double)data.get("latitude"), (Double)data.get("longitude"), (Double)data.get("altitude"));
         
-        String locationKeys[] = new String[]{"longitude", "latitude", "altitude"};
-        
-        JSONObject locationCoordinates=new JSONObject();
-        for(String key : locationKeys){
-            locationCoordinates.put(key, data.get(key));
-        }
-        
-        return locationCoordinates;
+        return location;
     }
     
 }
