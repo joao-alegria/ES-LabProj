@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package repository;
+package labProjectES.iss.repository;
 
 /**
  *
@@ -11,9 +11,13 @@ package repository;
  */
 
 import java.util.List;
-
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface LocationRepository extends CrudRepository<Location,Long> {
 
+    @Query(value = "SELECT * FROM LOCATION ORDER BY timestamp DESC", nativeQuery = true)
+    List<Location> getOrderLocations();
 }
