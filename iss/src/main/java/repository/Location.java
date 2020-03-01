@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package repository;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -11,10 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/**
- *
- * @author joaoalegria
- */
 @Entity
 public class Location {
 
@@ -65,5 +56,12 @@ public class Location {
     public void setAltitude(Double altitude) {
         this.altitude = altitude;
     }
+
+    @Override
+    public String toString() {
+        return "ISS Location: {latitude=" + latitude + ", longitude=" + longitude + ", altitude=" + altitude + '}';
+    }
+    
+    
     
 }
