@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="info" name="spring-boot-kafka-log" packages="labProjectES.iss">
     <Appenders>
-        <Kafka name="Kafka" topic="iss">
+        <Kafka name="Kafka" topic="iss-logs">
             <PatternLayout pattern="%m"/>
-            <Property name="bootstrap.servers">kafka:9092</Property>
+            <Property name="bootstrap.servers">localhost:9092</Property>
         </Kafka>
         <Async name="Async">
             <AppenderRef ref="Kafka"/>
