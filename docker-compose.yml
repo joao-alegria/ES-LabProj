@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+    kafka:
+        image: spotify/kafka
+        container_name: labProj-kafka
+        restart: always
+        ports:
+            - "9092:9092"
+            - "2181:2181"
+    web:
+        container_name: labProj-web
+        build:
+            context: .
+            args:
+                kafka: kafka
+        restart: always
+        depends_on:
+            - kafka
+        ports:
+            - "8080:8080"

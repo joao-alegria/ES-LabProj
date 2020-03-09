@@ -10,4 +10,7 @@ public interface LocationRepository extends CrudRepository<Location,Long> {
 
     @Query(value = "SELECT * FROM LOCATION ORDER BY timestamp DESC", nativeQuery = true)
     List<Location> getOrderLocations();
+    
+    @Query(value = "SELECT * FROM LOCATION ORDER BY timestamp DESC LIMIT 1", nativeQuery = true)
+    Location getLastLocation();
 }
