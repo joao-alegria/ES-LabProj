@@ -27,5 +27,5 @@ All requests made by our clients are logged through Kafka.
 4. Open the project 'iss' in your IDE (only tested with Netbeans).
 5. Run the project.
 6. Open a browser, enter the address 'http://localhost:8080/' and enjoy the application.
-
+7. [Optional] run the js app to see the Kafka logs and events live in a simple web UI.
 
