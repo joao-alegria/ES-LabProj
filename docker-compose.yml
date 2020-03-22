@@ -9,12 +9,19 @@ services:
             - "2181:2181"
     web:
         container_name: labProj-web
-        build:
-            context: .
-            args:
-                kafka: kafka
+        build: .
+
         restart: always
         depends_on:
             - kafka
         ports:
             - "8080:8080"
+
+    client:
+        container_name: labProj-client
+        build: basicClient
+        restart: always
+        depends_on:
+            - kafka
+        ports:
+            - "5000:5000"
