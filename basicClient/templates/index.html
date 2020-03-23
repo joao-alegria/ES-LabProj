@@ -79,6 +79,9 @@
 
         var webSocket = new WebSocket('ws://localhost:5000/data');
 
+        window.onbeforeunload = function (event) {
+            webSocket.send("close")
+        };
 
         webSocket.onmessage = function (event) {
             var json = JSON.parse(event.data);

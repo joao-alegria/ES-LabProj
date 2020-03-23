@@ -10,7 +10,6 @@ services:
     web:
         container_name: labProj-web
         build: .
-
         restart: always
         depends_on:
             - kafka

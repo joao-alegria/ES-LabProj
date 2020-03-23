@@ -14,4 +14,4 @@ EXPOSE 5000
 
 ENTRYPOINT [ "python3" ]
 
-CMD [ "basicClient.py" ]
+CMD ["basicClient.py" ]
